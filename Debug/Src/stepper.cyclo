@@ -1,0 +1,7 @@
+../Src/stepper.c:16:13:speedDelay	2
+../Src/stepper.c:33:13:step_Output	5
+../Src/stepper.c:49:6:StepperInit	1
+../Src/stepper.c:72:13:stepForward	2
+../Src/stepper.c:84:13:stepBackward	2
+../Src/stepper.c:97:6:moveForward	2
+../Src/stepper.c:104:6:moveBackward	2
