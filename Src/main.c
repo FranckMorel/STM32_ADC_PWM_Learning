@@ -4,7 +4,7 @@ APB -> Advanced Peripheral Bus
 AHB -> Advanced High Performance Bus ( schnellere Clock Zyklen )
 Locating Ports -> Block diagramm ( Datasheet ) , Memory mapping
 
-Formula für Bits setzen
+Formula für GPIO Port Bits setzen
 pin n:
 
 clear -> &= ~(3 << (n*2))
@@ -86,23 +86,56 @@ int main(void){
 
 
 #include <stepper.h>
+#include <timer.h>
 
 
 int main(void)
 {
     StepperInit();
+    tim2_Init();
+
 
     while(1)
     {
     	moveForward(2048);
-
-        for(volatile int i=0; i<1500000; i++){}
+    	motionDelay_ms(1000);
+        //for(volatile int i=0; i<1500000; i++){} // vorhin Delay mit Schleife
 
         moveBackward(2048);
+        motionDelay_ms(1000);
+        //for(volatile int i=0; i<1500000; i++){}
 
-        for(volatile int i=0; i<1500000; i++){}
 
     }
 }
 
+
+
+/* MINIMAL TEST LED
+#include "stm32f401xe.h"
+
+int main(void)
+{
+    RCC->AHB1ENR |= (1U << 0);          // GPIOA clock
+    GPIOA->MODER &= ~(3U << (5 * 2));
+    GPIOA->MODER |=  (1U << (5 * 2));   // PA5 output
+
+    RCC->APB1ENR |= (1U << 0);          // TIM2 clock
+    TIM2->PSC = 16000 - 1;              // 1 kHz
+    TIM2->ARR = 500 - 1;                // 500 ms
+    TIM2->CNT = 0;
+    TIM2->SR  = 0;
+    TIM2->EGR = (1U << 0);
+    TIM2->CR1 |= (1U << 0);             // CEN
+
+    while(1)
+    {
+        if(TIM2->SR & (1U << 0))
+        {
+            TIM2->SR &= ~(1U << 0);
+            GPIOA->ODR ^= (1U << 5);
+        }
+    }
+}
+*/
 

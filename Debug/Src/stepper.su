@@ -1,7 +1,6 @@
-../Src/stepper.c:16:13:speedDelay	16	static
-../Src/stepper.c:33:13:step_Output	16	static
-../Src/stepper.c:49:6:StepperInit	8	static
-../Src/stepper.c:72:13:stepForward	8	static
-../Src/stepper.c:84:13:stepBackward	8	static
-../Src/stepper.c:97:6:moveForward	24	static
-../Src/stepper.c:104:6:moveBackward	24	static
+../Src/stepper.c:34:13:step_Output	16	static
+../Src/stepper.c:50:6:StepperInit	8	static
+../Src/stepper.c:73:13:stepForward	8	static
+../Src/stepper.c:85:13:stepBackward	8	static
+../Src/stepper.c:98:6:moveForward	24	static
+../Src/stepper.c:107:6:moveBackward	24	static

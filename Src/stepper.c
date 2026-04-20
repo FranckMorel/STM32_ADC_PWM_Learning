@@ -13,12 +13,13 @@
 static int stepIndex = 0;
 
 
+/*
 static void speedDelay(void){
 	for(int i=0; i<2000; i++){}
 }
+*/
 
-
-
+// Pattern for Half drive Sequence
 uint8_t phase[8][4] = {
 	  {1, 0, 0, 0},  // Schritt 1
 	  {1, 1, 0, 0},  // Schritt 2
@@ -77,7 +78,7 @@ static void stepForward(void){
 	}
 
 	step_Output(stepIndex);
-	speedDelay();
+	//speedDelay();
 
 }
 
@@ -89,20 +90,24 @@ static void stepBackward(void){
 	}
 
 	step_Output(stepIndex);
-	speedDelay();
+	//speedDelay();
 
 }
 
 
 void moveForward(uint16_t steps){
   for(uint16_t i = 0; i < steps; i++){
+
 	    stepForward();
+	    motionDelay_ms(1);
      }
 
 }
 
 void moveBackward(uint16_t steps){
 	for(uint16_t i = 0; i < steps; i++){
+
 		stepBackward();
+		motionDelay_ms(1);
 	  }
 }
