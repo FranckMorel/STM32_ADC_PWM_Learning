@@ -11,6 +11,8 @@
 #define IN4_AUS			(GPIOB -> BSRR = (1<<16))
 
 static int stepIndex = 0;
+volatile uint32_t stepDelay_ms = 1;
+
 
 
 /*
@@ -20,6 +22,7 @@ static void speedDelay(void){
 */
 
 // Pattern for Half drive Sequence
+
 uint8_t phase[8][4] = {
 	  {1, 0, 0, 0},  // Schritt 1
 	  {1, 1, 0, 0},  // Schritt 2
@@ -31,6 +34,14 @@ uint8_t phase[8][4] = {
 	  {1, 0, 0, 1}   // Schritt 8
 };
 
+/*
+uint8_t phase[4][4] = {
+	  {1, 1, 0, 0},  // Schritt 1
+	  {0, 1, 1, 0},  // Schritt 2
+	  {0, 0, 1, 1},  // Schritt 3
+	  {1, 0, 0, 1},  // Schritt 4
+};
+*/
 static void step_Output(int stepIndex){
 
 	    if(phase[stepIndex][0]) IN1_AN;
@@ -69,6 +80,11 @@ void StepperInit(void){
 
 }
 
+void StepperStop(void){
+
+	IN1_AUS; IN2_AUS; IN3_AUS; IN4_AUS;
+
+}
 
 static void stepForward(void){
 	stepIndex++;
@@ -95,19 +111,22 @@ static void stepBackward(void){
 }
 
 
-void moveForward(uint16_t steps){
+void moveForward(uint16_t steps, uint32_t stepDelay_ms){
   for(uint16_t i = 0; i < steps; i++){
 
 	    stepForward();
-	    motionDelay_ms(1);
+	    motionDelay_ms(stepDelay_ms);
      }
 
 }
 
-void moveBackward(uint16_t steps){
+void moveBackward(uint16_t steps, uint32_t stepDelay_ms){
 	for(uint16_t i = 0; i < steps; i++){
 
 		stepBackward();
-		motionDelay_ms(1);
+		motionDelay_ms(stepDelay_ms);
 	  }
 }
+
+
+

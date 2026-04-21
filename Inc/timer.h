@@ -2,7 +2,7 @@
  * timer.h
  *
  *  Created on: Apr 20, 2026
- *      Author: kzvvftre
+ *      Author: Morel
  */
 
 #ifndef TIMER_H_

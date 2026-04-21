@@ -1,0 +1,13 @@
+../Src/motor_control.c:27:6:MotorControl_Init	1
+../Src/motor_control.c:34:6:MotorControl_Stop	1
+../Src/motor_control.c:39:6:MotorControl_RunUserMode	2
+../Src/motor_control.c:55:6:MotorControl_RunAdminCustom	4
+../Src/motor_control.c:78:6:MotorControl_SetMode	2
+../Src/motor_control.c:85:6:MotorControl_SetDirection	2
+../Src/motor_control.c:93:6:MotorControl_SetAdminSteps	1
+../Src/motor_control.c:97:6:MotorControl_SetAdminDelay	1
+../Src/motor_control.c:102:13:MotorControl_GetMode	1
+../Src/motor_control.c:106:18:MotorControl_GetDirection	1
+../Src/motor_control.c:110:14:MotorControl_GetState	1
+../Src/motor_control.c:114:10:MotorControl_GetAdminSteps	1
+../Src/motor_control.c:117:10:MotorControl_GetAdminDelay	1

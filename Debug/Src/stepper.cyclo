@@ -1,6 +1,7 @@
-../Src/stepper.c:34:13:step_Output	5
-../Src/stepper.c:50:6:StepperInit	1
-../Src/stepper.c:73:13:stepForward	2
-../Src/stepper.c:85:13:stepBackward	2
-../Src/stepper.c:98:6:moveForward	2
-../Src/stepper.c:107:6:moveBackward	2
+../Src/stepper.c:45:13:step_Output	5
+../Src/stepper.c:61:6:StepperInit	1
+../Src/stepper.c:83:6:StepperStop	1
+../Src/stepper.c:89:13:stepForward	2
+../Src/stepper.c:101:13:stepBackward	2
+../Src/stepper.c:114:6:moveForward	2
+../Src/stepper.c:123:6:moveBackward	2

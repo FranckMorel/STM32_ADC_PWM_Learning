@@ -2,7 +2,7 @@
  * stepper.h
  *
  *  Created on: Apr 18, 2026
- *      Author: kzvvftre
+ *      Author: Morel
  */
 
 
@@ -12,8 +12,9 @@
 #include <stdint.h>
 
 void StepperInit(void);
-void moveForward(uint16_t steps);
-void moveBackward(uint16_t steps);
+void StepperStop(void);
+void moveForward(uint16_t steps, uint32_t stepDelay_ms);
+void moveBackward(uint16_t steps, uint32_t stepDelay_ms);
 
 
 
