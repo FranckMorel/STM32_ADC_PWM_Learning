@@ -1,0 +1,2 @@
+../Src/pwm.c:13:6:pwm_init	4	static
+../Src/pwm.c:39:6:pwm_SetDuty	16	static

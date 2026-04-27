@@ -33,34 +33,34 @@ $(wildcard ../makefile.init) \
 $(wildcard ../makefile.targets) \
 
 
-BUILD_ARTIFACT_NAME := timers
+BUILD_ARTIFACT_NAME := ADC_PWM
 BUILD_ARTIFACT_EXTENSION := elf
 BUILD_ARTIFACT_PREFIX :=
 BUILD_ARTIFACT := $(BUILD_ARTIFACT_PREFIX)$(BUILD_ARTIFACT_NAME)$(if $(BUILD_ARTIFACT_EXTENSION),.$(BUILD_ARTIFACT_EXTENSION),)
 
 # Add inputs and outputs from these tool invocations to the build variables 
 EXECUTABLES += \
-timers.elf \
+ADC_PWM.elf \
 
 MAP_FILES += \
-timers.map \
+ADC_PWM.map \
 
 SIZE_OUTPUT += \
 default.size.stdout \
 
 OBJDUMP_LIST += \
-timers.list \
+ADC_PWM.list \
 
 
 # All Target
 all: main-build
 
 # Main-build Target
-main-build: timers.elf secondary-outputs
+main-build: ADC_PWM.elf secondary-outputs
 
 # Tool invocations
-timers.elf timers.map: $(OBJS) $(USER_OBJS) C:\Users\kzvvftre\STM32CubeIDE\workspace_1.16.0\timers\STM32F401RETX_FLASH.ld makefile objects.list $(OPTIONAL_TOOL_DEPS)
-	arm-none-eabi-gcc -o "timers.elf" @"objects.list" $(USER_OBJS) $(LIBS) -mcpu=cortex-m4 -T"C:\Users\kzvvftre\STM32CubeIDE\workspace_1.16.0\timers\STM32F401RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="timers.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+ADC_PWM.elf ADC_PWM.map: $(OBJS) $(USER_OBJS) C:\Users\kzvvftre\STM32CubeIDE\workspace_1.16.0\ADC_PWM\STM32F401RETX_FLASH.ld makefile objects.list $(OPTIONAL_TOOL_DEPS)
+	arm-none-eabi-gcc -o "ADC_PWM.elf" @"objects.list" $(USER_OBJS) $(LIBS) -mcpu=cortex-m4 -T"C:\Users\kzvvftre\STM32CubeIDE\workspace_1.16.0\ADC_PWM\STM32F401RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="ADC_PWM.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
 	@echo 'Finished building target: $@'
 	@echo ' '
 
@@ -69,14 +69,14 @@ default.size.stdout: $(EXECUTABLES) makefile objects.list $(OPTIONAL_TOOL_DEPS)
 	@echo 'Finished building: $@'
 	@echo ' '
 
-timers.list: $(EXECUTABLES) makefile objects.list $(OPTIONAL_TOOL_DEPS)
-	arm-none-eabi-objdump -h -S $(EXECUTABLES) > "timers.list"
+ADC_PWM.list: $(EXECUTABLES) makefile objects.list $(OPTIONAL_TOOL_DEPS)
+	arm-none-eabi-objdump -h -S $(EXECUTABLES) > "ADC_PWM.list"
 	@echo 'Finished building: $@'
 	@echo ' '
 
 # Other Targets
 clean:
-	-$(RM) default.size.stdout timers.elf timers.list timers.map
+	-$(RM) ADC_PWM.elf ADC_PWM.list ADC_PWM.map default.size.stdout
 	-@echo ' '
 
 secondary-outputs: $(SIZE_OUTPUT) $(OBJDUMP_LIST)

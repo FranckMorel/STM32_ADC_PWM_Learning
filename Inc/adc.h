@@ -21,7 +21,7 @@
 #define ADC_SWSTART			(1U<<30)
 #define ADC_EOC				(1U<<1)
 
-void adc_Init(void);
+void adc_init(void);
 void start_conversion(void);
 uint32_t adc_read(void);
 

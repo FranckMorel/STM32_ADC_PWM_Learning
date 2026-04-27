@@ -2,7 +2,7 @@
 #include "adc.h"
 
 
-void adc_Init(void){
+void adc_init(void){
 
 	RCC -> APB2ENR |= ADC1_EN; 		// ADC clock  EN
 	RCC -> AHB1ENR |= GPIOC_EN; 	// GPIOC clock EN
