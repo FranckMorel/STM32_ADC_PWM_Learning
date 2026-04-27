@@ -1,0 +1,6 @@
+/Debug/
+*.o
+*.elf
+*.map
+*.list
+stepperMotor_control*
