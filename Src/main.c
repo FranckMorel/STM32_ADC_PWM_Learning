@@ -19,7 +19,20 @@ int main(void){
 
 		  pwm_SetDuty(helligkeit);
 		  //delay_ms(20);
+
+	start_conversion();
+	pwm_init();
+
+	while(1){
+
+		  uint16_t poti_wert = adc_read();   // 0 - 4095
+		  uint8_t helligkeit = poti_wert / 41;  // 0 - 1000
+
+		  pwm_SetDuty(helligkeit);
+		  delay_ms(20);
 	}
+
+ }
 
 }
 
